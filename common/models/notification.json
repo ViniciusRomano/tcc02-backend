@@ -1,0 +1,52 @@
+{
+  "name": "Notification",
+  "plural": "notifications",
+  "base": "FwBaseModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nt_title": {
+        "type": "string",
+        "required": true
+    },
+    "nt_description": {
+      "type": "string",
+      "required": true
+    },
+    "nt_visualized": {
+      "type": "boolean",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "sensor": {
+      "type": "belongsTo",
+      "model": "SensorValue",
+      "foreignKey": "sv_id",
+      "options": {}
+    },
+    "device": {
+      "type": "belongsTo",
+      "model": "Device",
+      "foreignKey": "dev_id",
+      "options": {}
+    }
+  },
+  "acls": [
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": [
+        "create",
+        "find"
+       
+      ]
+    }
+  ],
+  "methods": {}
+}

@@ -1,0 +1,45 @@
+{
+  "name": "SensorValue",
+  "plural": "sensor-values",
+  "base": "FwBaseModel",
+  "idInjection": true,
+  "scope":{
+    "include":["device"]
+  },
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "sv_value": {
+      "type": "number",
+      "required": true,
+      "postgresql": {
+        "dataType": "double precision"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {
+    "device": {
+      "type": "belongsTo",
+      "model": "Device",
+      "foreignKey": "dev_id",
+      "options": {}
+    }
+  },
+  "acls": [
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": [
+        "create",
+        "find",
+        "getAVG",
+        "searchValues"
+      ]
+    }
+  ],
+  "methods": {}
+}

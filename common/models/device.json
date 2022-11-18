@@ -1,0 +1,40 @@
+{
+  "name": "Device",
+  "plural": "devices",
+  "base": "FwBaseModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "dev_name": {
+      "type": "string",
+      "required": true
+    },
+    "dev_min_range": {
+      "type": "number",
+      "required": true,
+      "postgresql": {
+        "dataType": "double precision"
+      }
+    },
+    "dev_max_range": {
+      "type": "number",
+      "required": true,
+      "postgresql": {
+        "dataType": "double precision"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

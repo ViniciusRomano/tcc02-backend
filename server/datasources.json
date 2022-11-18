@@ -1,0 +1,24 @@
+{
+  "postgres": {
+    "host": "localhost",
+    "port": 5432,
+    "url": "",
+    "database": "tcc",
+    "password": "postgres",
+    "name": "postgres",
+    "user": "postgres",
+    "connector": "loopback-connector-postgresql",
+    "debug": true
+  },
+  "transient": {
+    "name": "transient",
+    "connector": "transient"
+  },
+  "file": {
+    "name": "file",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "root": "storage/",
+    "maxFileSize": 524288000
+  }
+}
